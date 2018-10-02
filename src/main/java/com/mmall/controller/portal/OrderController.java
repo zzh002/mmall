@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.mmall.controller.portal;
 
 import com.alipay.api.AlipayApiException;
