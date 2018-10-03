@@ -5,9 +5,10 @@ import com.mmall.common.ServerResponse;
 import com.mmall.pojo.Shipping;
 import com.mmall.service.impl.ShippingServiceImpl;
 import com.mmall.test.TestBase;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -15,8 +16,9 @@ import java.util.List;
 /**
  * Created by geely
  */
-@Slf4j
 public class ShippingServiceTest extends TestBase {
+
+    private Logger logger = LoggerFactory.getLogger(ShippingServiceTest.class);
 
 
     @Autowired
@@ -26,7 +28,7 @@ public class ShippingServiceTest extends TestBase {
     public void testSelect(){
         ServerResponse sr = iShippingService.select(1, 3);
         Shipping shipping = (Shipping)sr.getData();
-        log.info(ToStringBuilder.reflectionToString(shipping));
+        logger.info(ToStringBuilder.reflectionToString(shipping));
 
     }
 
@@ -34,11 +36,11 @@ public class ShippingServiceTest extends TestBase {
     public void testList(){
         ServerResponse sr = iShippingService.list(1,1,2);
         PageInfo<Shipping> p=new PageInfo<Shipping>((List<Shipping>)sr.getData());
-        log.info(ToStringBuilder.reflectionToString(sr.getData()));
-        log.info("======");
+        logger.info(ToStringBuilder.reflectionToString(sr.getData()));
+        logger.info("======");
 
         ServerResponse x = ServerResponse.createBySuccess(p);
-        log.info(ToStringBuilder.reflectionToString(x));
+        logger.info(ToStringBuilder.reflectionToString(x));
 
 //        {
 //            "status": 0,
