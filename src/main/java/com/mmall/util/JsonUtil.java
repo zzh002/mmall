@@ -100,7 +100,15 @@ public class JsonUtil {
         }
     }
     public static void main(String[] args) {
-        User u1 = new User();
+
+        User user = new User();
+        user.setId(2);
+        user.setEmail("geely@happymmall.com");
+        user.setCreateTime(new Date());
+        String userJsonPretty = JsonUtil.obj2StringPretty(user);
+        log.info("userJson:{}",userJsonPretty);
+
+        /*User u1 = new User();
         u1.setId(2);
         u1.setEmail("geely@happymmall.com");
         u1.setCreateTime(new Date());
@@ -140,7 +148,7 @@ public class JsonUtil {
         });
 
 
-        List<User> userListObj2 = JsonUtil.string2Obj(userListStr,List.class,User.class);
+        List<User> userListObj2 = JsonUtil.string2Obj(userListStr,List.class,User.class);*/
 
         System.out.println("end");
     }
