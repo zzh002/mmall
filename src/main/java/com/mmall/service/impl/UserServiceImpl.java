@@ -127,6 +127,8 @@ public class UserServiceImpl implements IUserService {
             int rowCount = userMapper.updatePasswordByUsername(username,md5Password);
 
             if(rowCount > 0){
+                //修改密码成功后，清除forgetToken
+                RedisPoolUtil.del(Const.TOKEN_PREFIX+username);
                 return ServerResponse.createBySuccessMessage("修改密码成功");
             }
         }else{
