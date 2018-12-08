@@ -128,6 +128,7 @@ public class UserServiceImpl implements IUserService {
 
             if(rowCount > 0){
                 //修改密码成功后，清除forgetToken
+                //TODO
                 RedisShardedPoolUtil.del(Const.TOKEN_PREFIX+username);
                 return ServerResponse.createBySuccessMessage("修改密码成功");
             }
